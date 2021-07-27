@@ -39,15 +39,4 @@ const middleware = (req, res, next) => {
 app.use(require("./routes/auth"));
 app.use(require("./routes/post"));
 
-// server static assest if in production
-if (process.env.NODE_ENV === "production") {
-  //set static floder
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
-
 app.listen(port, () => console.log(`server up on :- ${port}`));
-
-// dQ9C3z0L4jYQL9GD
